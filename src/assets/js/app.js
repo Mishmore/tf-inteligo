@@ -13,9 +13,12 @@ $(_ => {
   //var dbRef = firebase.database().ref().child('text');
   //dbRef.on('value', snap => holaMundo.innerText = snap.val() );
 
-  var objetoPre = $('#objeto');
+  var objetoPre = document.getElementById('objeto');
   var dbRefObjeto = firebase.database().ref().child('objeto');
-  dbRefObjeto.on('value', snap => console.log(snap.val()));
+  //dbRefObjeto.on('value', snap => console.log(snap.val()));
 
+  dbRefObjeto.on('value', snap => {
+    objetoPre.innerText = JSON.stringify(snap.val(),null,2);
+  });
 
 })
